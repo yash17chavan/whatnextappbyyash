@@ -1,0 +1,70 @@
+<html>
+	<head>
+	<title> What next App by Yash chavan </title>
+	<style>
+		* { font-size : 100 px ; }
+		body {background-color : lightblue ; }
+	</style>
+	<script>
+		function find()
+		{
+			event.preventDefault() ;
+			let name = document.getElementById("name") ; 
+			let job = document.getElementById("job") ;
+			let ms = document.getElementById("ms") ;
+			let mba = document.getElementById("mba") ;
+			let ans = document.getElementById("ans") ;
+
+			if (name.value == "")
+			{
+				alert("name cannot be empty ");
+				ans.innerHTML = "" ;
+				name.focus() ;
+				return ;
+			}
+
+			else if (name.value.trim() == "")
+			{
+				alert("name cannot be only spaces ");
+				name.value = "" ;
+				ans.innerHTML = "" ;
+				name.focus() ;
+				return ;
+			}
+
+			else if (! name.value.match(/^[A-Za-z ]+$/))
+			{
+				alert("name can be only aplhabates ");
+				name.value = "" ;
+				ans.innerHTML = "" ;
+				name.focus() ;
+				return ;
+			}
+
+			let choice = "" ;
+			if (job.checked)	choice = "Job" ;
+			else if (ms.checked)	choice = "MS" ;
+			else 			choice = "MBA" ;
+
+			let msg = "name " + name.value + " choice " + choice ;
+			ans.innerHTML = msg ;
+			
+		}
+	</script>
+	</head>
+	<body>
+	<center>
+	<h1> What Next ???? </h1>
+	<form onsubmit="find()">
+	<input type = "text" placeholder = "enter ur name" id = "name" />
+	<br> <br>
+	<input type= "radio" name = "c" id = "job" checked= "true" / >Job
+	<input type= "radio" name = "c" id = "ms" />MS
+	<input type= "radio" name = "c" id = "job" />MBA
+	<br> <br>
+	<input type= "submit"/>
+	</form>
+	<h2 id="ans" > </h2>
+	</center>
+	</body>
+</html>
